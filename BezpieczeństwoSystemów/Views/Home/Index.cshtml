@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-action="Reset" class="btn btn-primary">Reset</a>
+<a asp-action="GeneratePrimeNumbers" class="btn btn-primary">Generuj Liczby Pierwsze</a>
+<div class="container border-2">
+    <label>p:</label>
+    <div>
+        @BezpieczeństwoSystemów.Controllers.HomeController.getVarable("p")
+    </div>
+    <label>q:</label>
+    <div>
+        @BezpieczeństwoSystemów.Controllers.HomeController.getVarable("q")
+    </div>
+    <label>Klucz Publiczny(e,n)</label>
+    <div>
+        (@BezpieczeństwoSystemów.Controllers.HomeController.getVarable("e") , @BezpieczeństwoSystemów.Controllers.HomeController.getVarable("n"))
+    </div>
+    <label>Klucz Prywatny(d,n)</label>
+    <div>
+        (@BezpieczeństwoSystemów.Controllers.HomeController.getVarable("d") , @BezpieczeństwoSystemów.Controllers.HomeController.getVarable("n"))
+    </div>
+</div>
+
+<div class="d-flex mt-3 h2">
+    <div class="container border border-3 border-success rounded m-2">
+        <h3>Zaszyfruj</h3>
+        <form asp-action="zaszyfruj" method="post" class="m-2">
+            <label>Text: </label>
+            <input class="form-text" name="text" type="text" />
+            <button class="btn btn-secondary" type="submit">Zaszyfruj</button>
+        </form>
+        <div class="m-2">
+            @BezpieczeństwoSystemów.Controllers.HomeController.getVarable("messageHashed")
+        </div>
+    </div>
+    <div class="container border border-3 border-warning rounded m-2">
+        <h3>Rozszyfruj</h3>
+        <form asp-action="rozszyfruj" method="post" class="m-2">
+            <label>Text: </label>
+            <input class="form-text" name="text" type="text" />
+            <button class="btn btn-secondary" type="submit">Rozszyfruj</button>
+        </form>
+        <div class="m-2">
+            @BezpieczeństwoSystemów.Controllers.HomeController.getVarable("message")
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
